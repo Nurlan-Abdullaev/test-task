@@ -85,8 +85,8 @@ export const Description = () => {
   };
 
   return (
-    <>
-      <OrderContainer>
+    <Main>
+      <OrderContainer className="OrderContainer">
         <h1>Добавленные товары</h1>
         <div>
           <p style={{ color: "#fff" }}>товар {counter}</p>
@@ -115,10 +115,10 @@ export const Description = () => {
           </button>
         </div>
       </OrderContainer>
-      <Container>
+      <Container className="Container">
         {productset.length > 0 && (
           <MiniContainer>
-            <MiniMiniContainer>
+            <MiniMiniContainer className="MiniMiniContainer2">
               <img
                 src={productset[id - 1].image_url}
                 alt={productset[id - 1].title}
@@ -141,9 +141,27 @@ export const Description = () => {
           </MiniContainer>
         )}
       </Container>
-    </>
+    </Main>
   );
 };
+const Main = styled("div")`
+  @media screen and (max-width: 360px) {
+    .OrderContainer {
+      width: 20rem;
+      height: 20rem;
+    }
+    .MiniMiniContainer2 {
+      width: 20rem;
+      height: 100%;
+      img {
+        margin-top: 1rem;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 1rem;
+      }
+    }
+  }
+`;
 
 const OrderContainer = styled("div")`
   display: flex;

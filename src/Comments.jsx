@@ -22,7 +22,7 @@ export const Comments = () => {
   return (
     <Container>
       {data.map((el, index) => (
-        <Card key={`${el.id}_${index}`}>
+        <Card className="Card" key={`${el.id}_${index}`}>
           <p>{el.id}</p>
           <p>{el.text}</p>
         </Card>
@@ -40,6 +40,13 @@ const Container = styled("div")`
   gap: 1rem;
   border-radius: 1rem;
   margin-bottom: 1rem;
+  @media screen and (max-width: 360px) {
+    flex-direction: column;
+    .Card {
+      width: 300px;
+      height: 200px;
+    }
+  }
 `;
 
 const Card = styled("div")`

@@ -30,15 +30,12 @@ export const Products = () => {
       <Container>
         <h1>тестовое задание</h1>
         <Comments />
-
         <RowContainer>
           {products.map((el) => (
             <MiniContainer key={el.id}>
-              <MiniMiniContainer>
+              <MiniMiniContainer className="MiniMiniContainer">
                 <img src={el.image_url} alt={el.title} />
-
                 <p>{el.title}</p>
-
                 <button
                   style={{
                     background: "#222222",
@@ -77,8 +74,31 @@ const Container = styled("div")`
     width: 50rem;
     height: 5rem;
   }
-`;
+  img {
+    margin-top: 1rem;
+    width: 17rem;
+    height: 22rem;
+    border-radius: 1rem;
+  }
+  @media screen and (max-width: 360px) {
+    h1 {
+      width: 330px;
+      height: 108px;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      margin-top: 1rem;
+      border-radius: 1rem;
+    }
 
+    .MiniMiniContainer {
+      width: 21em;
+      height: 100%;
+      margin-right: 3rem;
+    }
+  }
+`;
 const RowContainer = styled("div")`
   display: flex;
   flex-wrap: wrap;
@@ -102,12 +122,7 @@ const MiniMiniContainer = styled("div")`
   margin-left: 3rem;
   width: 25rem;
   height: 100%;
-  img {
-    margin-top: 1rem;
-    width: 17rem;
-    height: 22rem;
-    border-radius: 1rem;
-  }
+
   p {
     text-decoration: none;
     color: #000000;
